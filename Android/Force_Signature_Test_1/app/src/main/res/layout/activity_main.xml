@@ -34,16 +34,18 @@
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.606"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/SignaturePicture_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:text="@string/signature_picture"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="@+id/SubjectName_editText"
         app:layout_constraintStart_toStartOf="@+id/SubjectName_textView"
         app:layout_constraintTop_toBottomOf="@+id/SubjectName_textView" />
@@ -52,7 +54,9 @@
         android:id="@+id/Reset_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="@string/reset"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="@+id/SignaturePicture_button"
         app:layout_constraintStart_toStartOf="@+id/SignaturePicture_button"
         app:layout_constraintTop_toBottomOf="@+id/SignaturePicture_button" />
@@ -61,7 +65,9 @@
         android:id="@+id/Save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:text="@string/save"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="@+id/Reset_button"
         app:layout_constraintStart_toStartOf="@+id/Reset_button"
         app:layout_constraintTop_toBottomOf="@+id/Reset_button" />
