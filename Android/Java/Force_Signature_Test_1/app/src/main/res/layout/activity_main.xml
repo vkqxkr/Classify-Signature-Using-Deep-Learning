@@ -7,12 +7,61 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/SubjectName_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginStart="296dp"
+        android:text="@string/SubjectName_String"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.199" />
+
+    <EditText
+        android:id="@+id/SubjectName_EditText"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/Hint_String"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/SubjectName_TextView"
+        app:layout_constraintStart_toEndOf="@+id/SubjectName_TextView"
+        app:layout_constraintTop_toTopOf="@+id/SubjectName_TextView" />
+
+    <Button
+        android:id="@+id/SelectSignaturePicture_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:onClick="onClick"
+        android:text="@string/SelectSignaturePicture_String"
+        app:layout_constraintEnd_toEndOf="@+id/SubjectName_EditText"
+        app:layout_constraintStart_toStartOf="@+id/SubjectName_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/SubjectName_TextView" />
+
+    <Button
+        android:id="@+id/Reset_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:onClick="onClick"
+        android:text="@string/Reset_String"
+        app:layout_constraintEnd_toEndOf="@+id/SelectSignaturePicture_Button"
+        app:layout_constraintStart_toStartOf="@+id/SelectSignaturePicture_Button"
+        app:layout_constraintTop_toBottomOf="@+id/SelectSignaturePicture_Button" />
+
+    <Button
+        android:id="@+id/Save_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/Save_String"
+        android:onClick="onClick"
+        app:layout_constraintEnd_toEndOf="@+id/Reset_Button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Reset_Button"
+        app:layout_constraintTop_toBottomOf="@+id/Reset_Button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
