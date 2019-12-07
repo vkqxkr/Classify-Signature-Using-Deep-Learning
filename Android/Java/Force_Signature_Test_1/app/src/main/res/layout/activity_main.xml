@@ -28,7 +28,8 @@
         android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/SubjectName_TextView"
         app:layout_constraintStart_toEndOf="@+id/SubjectName_TextView"
-        app:layout_constraintTop_toTopOf="@+id/SubjectName_TextView" />
+        app:layout_constraintTop_toTopOf="@+id/SubjectName_TextView"
+        tools:ignore="Autofill" />
 
     <Button
         android:id="@+id/SelectSignaturePicture_Button"
