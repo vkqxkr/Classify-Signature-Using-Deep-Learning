@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/SubjectName_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="260dp"
+        android:text="@string/SubjectName_String"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <EditText
+        android:id="@+id/SubjectName_EditText"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:textSize="30sp"
+        android:ems="10"
+        android:hint="@string/Hint_String"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/SubjectName_TextView"
+        app:layout_constraintStart_toEndOf="@+id/SubjectName_TextView"
+        app:layout_constraintTop_toTopOf="@+id/SubjectName_TextView"
+        app:layout_constraintVertical_bias="0.4"
+        tools:ignore="Autofill" />
+
+    <Button
+        android:id="@+id/SelectSignaturePicture_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:onClick="onClick"
+        android:text="@string/SelectSignaturePicture_String"
+        app:layout_constraintEnd_toEndOf="@+id/SubjectName_EditText"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="@+id/SubjectName_TextView"
+        app:layout_constraintTop_toBottomOf="@+id/SubjectName_TextView" />
+
+    <Button
+        android:id="@+id/Reset_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:onClick="onClick"
+        android:text="@string/Reset_String"
+        app:layout_constraintEnd_toEndOf="@+id/SelectSignaturePicture_Button"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="@+id/SelectSignaturePicture_Button"
+        app:layout_constraintTop_toBottomOf="@+id/SelectSignaturePicture_Button" />
+
+    <Button
+        android:id="@+id/Save_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:onClick="onClick"
+        android:text="@string/Save_String"
+        app:layout_constraintEnd_toEndOf="@+id/Reset_Button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Reset_Button"
+        app:layout_constraintTop_toBottomOf="@+id/Reset_Button" />
+
+    <ImageView
+        android:id="@+id/SignaturePicture_ImageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="@+id/Save_Button"
+        app:layout_constraintStart_toStartOf="@+id/Save_Button"
+        app:layout_constraintTop_toBottomOf="@+id/Save_Button"
+        app:srcCompat="@android:color/background_light"
+        tools:ignore="ContentDescription" />
+
+    <nclab.force_signature_test_2.MyPainter
+        android:id="@+id/Painter_CanvasView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="@+id/SignaturePicture_ImageView"
+        app:layout_constraintStart_toStartOf="@+id/SignaturePicture_ImageView"
+        app:layout_constraintTop_toTopOf="@+id/SignaturePicture_ImageView"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

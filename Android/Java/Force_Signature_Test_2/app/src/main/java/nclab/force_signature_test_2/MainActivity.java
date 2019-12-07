@@ -1,4 +1,4 @@
-package nclab.force_signature_test_1;
+package nclab.force_signature_test_2;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         MyPainter_Class = findViewById(R.id.Painter_CanvasView);
         MyPainter_Class.setAlpha(0.5f);
         String path = GetExternalPath_Func();
-        File file = new File(path + "Force_Signature_Test_1");
+        File file = new File(path + "Force_Signature_Test_2");
         file.mkdir();
     }
 
@@ -96,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.Save_Button:
                 SubjectName_String = SubjectName_EditText.getText().toString();
-                MyPainter_Class.SaveTxt(GetExternalPath_Func() + "Force_Signature_Test_1/" + SubjectName_String + ".txt");
-                MyPainter_Class.SaveImg(GetExternalPath_Func() + "Force_Signature_Test_1/" + SubjectName_String + ".png");
+                MyPainter_Class.SaveTxt(GetExternalPath_Func() + "Force_Signature_Test_2/" + SubjectName_String + ".txt");
+                MyPainter_Class.SaveImg(GetExternalPath_Func() + "Force_Signature_Test_2/" + SubjectName_String + ".png");
                 SubjectName_String = "";
                 Toast.makeText(this,
                         "저장 완료",Toast.LENGTH_SHORT).show();
