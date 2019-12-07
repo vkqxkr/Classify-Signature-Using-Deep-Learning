@@ -34,6 +34,7 @@ public class MyPainter extends View {
         super(context, attrs);
         mpaint.setColor(Color.BLACK);
         mpaint.setStrokeWidth(3);
+        mpaint.setAntiAlias(true);
         this.setLayerType(LAYER_TYPE_SOFTWARE,null);
     }
 
@@ -42,6 +43,7 @@ public class MyPainter extends View {
         super(context);
         mpaint.setColor(Color.BLACK);
         mpaint.setStrokeWidth(3);
+        mpaint.setAntiAlias(true);
         this.setLayerType(LAYER_TYPE_SOFTWARE,null);
     }
 
@@ -93,6 +95,7 @@ public class MyPainter extends View {
         }
         else if (event.getAction() == MotionEvent.ACTION_MOVE)
         {
+            mpaint.setStrokeWidth(event.getPressure() * 10);
             forceValue = forceValue + event.getPressure() + "\n";
             if(oldX != -1)
             {
