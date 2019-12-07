@@ -96,9 +96,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.Save_Button:
                 SubjectName_String = SubjectName_EditText.getText().toString();
-                MyPainter_Class.SaveTxt(GetExternalPath_Func() + "signature_force/" + SubjectName_String + ".txt");
-                MyPainter_Class.SaveImg(GetExternalPath_Func() + "signature_force/" + SubjectName_String + ".png");
+                MyPainter_Class.SaveTxt(GetExternalPath_Func() + "Force_Signature_Test_1/" + SubjectName_String + ".txt");
+                MyPainter_Class.SaveImg(GetExternalPath_Func() + "Force_Signature_Test_1/" + SubjectName_String + ".png");
                 SubjectName_String = "";
+                Toast.makeText(this,
+                        "저장 완료",Toast.LENGTH_SHORT).show();
                 break;
         }
     }
