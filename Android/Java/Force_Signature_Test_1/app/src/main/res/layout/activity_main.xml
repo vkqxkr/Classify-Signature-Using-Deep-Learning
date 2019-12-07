@@ -18,6 +18,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.144" />
 
+    <EditText
+        android:id="@+id/SubjectName_EditText"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="#FFFFFF"
+        android:textSize="30sp"
+        android:ems="10"
+        android:hint="@string/Hint_String"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/SubjectName_TextView"
+        app:layout_constraintStart_toEndOf="@+id/SubjectName_TextView"
+        app:layout_constraintTop_toTopOf="@+id/SubjectName_TextView"
+        app:layout_constraintVertical_bias="0.4"
+        tools:ignore="Autofill" />
+
     <Button
         android:id="@+id/SelectSignaturePicture_Button"
         android:layout_width="wrap_content"
@@ -54,28 +69,25 @@
         app:layout_constraintStart_toStartOf="@+id/Reset_Button"
         app:layout_constraintTop_toBottomOf="@+id/Reset_Button" />
 
-    <EditText
-        android:id="@+id/SubjectName_EditText"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:background="#FFFFFF"
-        android:ems="10"
-        android:hint="@string/Hint_String"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/SubjectName_TextView"
-        app:layout_constraintStart_toEndOf="@+id/SubjectName_TextView"
-        app:layout_constraintTop_toTopOf="@+id/SubjectName_TextView"
-        app:layout_constraintVertical_bias="0.4"
-        tools:ignore="Autofill" />
+    <ImageView
+        android:id="@+id/SignaturePicture_ImageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="@+id/Save_Button"
+        app:layout_constraintStart_toStartOf="@+id/Save_Button"
+        app:layout_constraintTop_toBottomOf="@+id/Save_Button"
+        app:srcCompat="@android:color/background_light"
+        tools:ignore="ContentDescription" />
 
     <nclab.force_signature_test_1.MyPainter
         android:id="@+id/Painter_CanvasView"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="56dp"
         android:layout_weight="1"
-        app:layout_constraintEnd_toEndOf="@+id/Save_Button"
-        app:layout_constraintStart_toStartOf="@+id/Save_Button"
-        app:layout_constraintTop_toBottomOf="@+id/Save_Button" />
+        app:layout_constraintEnd_toEndOf="@+id/SignaturePicture_ImageView"
+        app:layout_constraintStart_toStartOf="@+id/SignaturePicture_ImageView"
+        app:layout_constraintTop_toTopOf="@+id/SignaturePicture_ImageView"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
