@@ -14,14 +14,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var GetPicture_Button: UIButton!
     @IBOutlet weak var Reset_Button: UIButton!
     @IBOutlet weak var Save_Button: UIButton!
-    @IBOutlet weak var DrawSignature_View: UIView!
+    @IBOutlet weak var DrawingSignature_ContrainerView: UIView!
     
     var SubjectName_String: String = ""
+    
+    var lastPoint = CGPoint.zero
+    var color = UIColor.black
+    var brushWidth: CGFloat = 10.0
+    var opacity: CGFloat = 1.0
+    var swiped = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         SubjectName_TextField.returnKeyType = .done
         self.SubjectName_TextField.delegate = self as? UITextFieldDelegate
+        self.DrawingSignature_ContrainerView.frame.size.height = 300
+        self.DrawingSignature_ContrainerView.frame.size.width = 300
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
