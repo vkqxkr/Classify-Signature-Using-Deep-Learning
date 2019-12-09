@@ -15,13 +15,13 @@ class ViewController2: UIViewController {
     
     var ForceValue_String: String = ""
     
-    var brushColor = UIColor.black.cgColor
-    var brushWidth: CGFloat = 1.0
+    var BrushColor_UIColor = UIColor.black.cgColor
+    var BrushWidth_CGFloat: CGFloat = 1.0
 
-    var lastPoint = CGPoint.zero
-    var isDrawing = false
+    var LastPoint_CGPoint = CGPoint.zero
+    var IsDrawing_Boolean = false
 
-    var isPen = true
+    var IsPen_Boolean = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class ViewController2: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-                lastPoint = touch.location(in: DrawingSignature_ImageView)
+                LastPoint_CGPoint = touch.location(in: DrawingSignature_ImageView)
         }
     }
     
@@ -39,8 +39,8 @@ class ViewController2: UIViewController {
                 print(force)
             ForceValue_String = ForceValue_String + force.description + "\n"
             let currentPoint = touch.location(in: DrawingSignature_ImageView)
-                    drawLine(from: lastPoint, to: currentPoint, force: force)
-                    lastPoint = currentPoint
+                    DrawLine_Func(from: LastPoint_CGPoint, to: currentPoint, force: force)
+                    LastPoint_CGPoint = currentPoint
 
         }
     }
@@ -49,21 +49,21 @@ class ViewController2: UIViewController {
         if let touch = touches.first {
             let force = touch.force/touch.maximumPossibleForce
             print(force)
-            if !isDrawing {
-                drawLine(from: lastPoint, to: lastPoint, force: force)
+            if !IsDrawing_Boolean {
+                DrawLine_Func(from: LastPoint_CGPoint, to: LastPoint_CGPoint, force: force)
             }
-            isDrawing = false
+            IsDrawing_Boolean = false
         }
     }
     
-    func drawLine(from: CGPoint, to: CGPoint, force: CGFloat) {
+    func DrawLine_Func(from: CGPoint, to: CGPoint, force: CGFloat) {
         UIGraphicsBeginImageContext(DrawingSignature_ImageView.frame.size)
 
         guard let context = UIGraphicsGetCurrentContext() else { return }
 
         DrawingSignature_ImageView.image?.draw(in: DrawingSignature_ImageView.bounds)
 
-        if isPen {
+        if IsPen_Boolean {
             context.setBlendMode(.normal)
         } else {
             context.setBlendMode(.clear)
@@ -71,7 +71,7 @@ class ViewController2: UIViewController {
 
         context.setLineCap(.round)
         context.setLineWidth(force * 10)
-        context.setStrokeColor(brushColor)
+        context.setStrokeColor(BrushColor_UIColor)
         context.move(to: from)
         context.addLine(to: to)
 
