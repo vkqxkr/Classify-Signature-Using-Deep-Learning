@@ -84,6 +84,7 @@ class ViewController2: UIViewController {
     
     func ClearAll_Func() {
         ForceValue_String = ""
+        DrawingSignature_ImageView.backgroundColor = UIColor.white
     }
     
     func GetForceValue_Func()->String {
