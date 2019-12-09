@@ -14,22 +14,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var GetPicture_Button: UIButton!
     @IBOutlet weak var Reset_Button: UIButton!
     @IBOutlet weak var Save_Button: UIButton!
-    @IBOutlet weak var DrawingSignature_ContrainerView: UIView!
+    @IBOutlet weak var DrawingSignature_ContainerView: UIView!
     
     var SubjectName_String: String = ""
     
-    var lastPoint = CGPoint.zero
-    var color = UIColor.black
-    var brushWidth: CGFloat = 10.0
-    var opacity: CGFloat = 1.0
-    var swiped = false
+    let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        picker.delegate = self as  UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        DrawingSignature_ContainerView.frame.size.height = 300
+        DrawingSignature_ContainerView.frame.size.width = 300
+        DrawingSignature_ContainerView.layer.borderWidth = 1.0
         SubjectName_TextField.returnKeyType = .done
         self.SubjectName_TextField.delegate = self as? UITextFieldDelegate
-        self.DrawingSignature_ContrainerView.frame.size.height = 300
-        self.DrawingSignature_ContrainerView.frame.size.width = 300
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -58,9 +56,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func GetPicture_Func_GetPicture_Button(_ sender: UIButton) {
+        openLibrary()
     }
     
     @IBAction func Reset_Func_Reset_Button(_ sender: UIButton) {
+//        self.performSegue(withIdentifier: "GotoViewController2", sender: self)
     }
     
     @IBAction func Save_Func_Save_Button(_ sender: UIButton) {
@@ -71,5 +71,26 @@ class ViewController: UIViewController {
             showToast(message: "실험자 이름을 입력하여 주세요.", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
         }
     }
+    
+    func openLibrary(){
+      picker.sourceType = .photoLibrary
+      present(picker, animated: false, completion: nil)
+    }
+//    override func prepare(for segue:UIStoryboardSegue, sender:Any?) {
+//      if segue.identifier == "GotoViewController2",
+//         let data = segue.destination as? ViewController2
+//      {
+//        data.Eraser()
+//      }
+//    }
 }
 
+extension ViewController : UIImagePickerControllerDelegate,
+UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) != nil {
+            //이미지 추가
+        }
+        dismiss(animated: true, completion: nil)
+    }
+}
