@@ -38,20 +38,20 @@ class ViewController: UIViewController {
     
     func ShowToastMessage_Func(message : String, font: UIFont) {
         
-        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 330, y: self.view.frame.size.height-960, width: 200, height: 35))
-        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
-        toastLabel.textColor = UIColor.white
-        toastLabel.font = font
-        toastLabel.textAlignment = .center;
-        toastLabel.text = message
-        toastLabel.alpha = 1.0
-        toastLabel.layer.cornerRadius = 10;
-        toastLabel.clipsToBounds  =  true
-        self.view.addSubview(toastLabel)
+        let ToastMessageLabel_UILabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 330, y: self.view.frame.size.height-960, width: 200, height: 35))
+        ToastMessageLabel_UILabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        ToastMessageLabel_UILabel.textColor = UIColor.white
+        ToastMessageLabel_UILabel.font = font
+        ToastMessageLabel_UILabel.textAlignment = .center;
+        ToastMessageLabel_UILabel.text = message
+        ToastMessageLabel_UILabel.alpha = 1.0
+        ToastMessageLabel_UILabel.layer.cornerRadius = 10;
+        ToastMessageLabel_UILabel.clipsToBounds  =  true
+        self.view.addSubview(ToastMessageLabel_UILabel)
         UIView.animate(withDuration: 3.0, delay: 0.1, options: .curveEaseOut, animations: {
-            toastLabel.alpha = 0.0
+            ToastMessageLabel_UILabel.alpha = 0.0
         }, completion: {(isCompleted) in
-            toastLabel.removeFromSuperview()
+            ToastMessageLabel_UILabel.removeFromSuperview()
         })
     }
     
