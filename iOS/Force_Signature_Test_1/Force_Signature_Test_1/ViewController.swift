@@ -18,11 +18,11 @@ class ViewController: UIViewController {
     
     var SubjectName_String: String = ""
     
-    let picker = UIImagePickerController()
+    let Picker_PickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        picker.delegate = self as  UIImagePickerControllerDelegate & UINavigationControllerDelegate
+        Picker_PickerController.delegate = self as  UIImagePickerControllerDelegate & UINavigationControllerDelegate
         DrawingSignature_ContainerView.frame.size.height = 300
         DrawingSignature_ContainerView.frame.size.width = 300
         DrawingSignature_ContainerView.layer.borderWidth = 1.0
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
         return false
     }
     
-    func showToast(message : String, font: UIFont) {
+    func ShowToastMessage_Func(message : String, font: UIFont) {
         
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 330, y: self.view.frame.size.height-960, width: 200, height: 35))
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func GetPicture_Func_GetPicture_Button(_ sender: UIButton) {
-        openLibrary()
+        OpenGallary_Func()
     }
     
     @IBAction func Reset_Func_Reset_Button(_ sender: UIButton) {
@@ -68,13 +68,13 @@ class ViewController: UIViewController {
             
         }
         else {
-            showToast(message: "실험자 이름을 입력하여 주세요.", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
+            ShowToastMessage_Func(message: "실험자 이름을 입력하여 주세요.", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
         }
     }
     
-    func openLibrary(){
-      picker.sourceType = .photoLibrary
-      present(picker, animated: false, completion: nil)
+    func OpenGallary_Func(){
+      Picker_PickerController.sourceType = .photoLibrary
+      present(Picker_PickerController, animated: false, completion: nil)
     }
 //    override func prepare(for segue:UIStoryboardSegue, sender:Any?) {
 //      if segue.identifier == "GotoViewController2",
