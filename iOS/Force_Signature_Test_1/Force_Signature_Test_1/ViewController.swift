@@ -17,11 +17,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var DrawingSignature_ContainerView: UIView!
     
     var SubjectName_String: String = ""
+    var ViewContoller2_UIViewContoller = ViewController2()
     
     let Picker_PickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let addViewController = storyboard.instantiateViewController(withIdentifier: "ViewController2_ID")
+//        self.addChild(addViewController)
+//        self.view.addSubview(addViewController.view)
+//        addViewController.didMove(toParent: self)
+        
         Picker_PickerController.delegate = self as  UIImagePickerControllerDelegate & UINavigationControllerDelegate
         DrawingSignature_ContainerView.frame.size.height = 300
         DrawingSignature_ContainerView.frame.size.width = 300
@@ -60,7 +68,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func Reset_Func_Reset_Button(_ sender: UIButton) {
-//        self.performSegue(withIdentifier: "GotoViewController2", sender: self)
+        ViewContoller2_UIViewContoller.ClearAll_Func()
     }
     
     @IBAction func Save_Func_Save_Button(_ sender: UIButton) {
@@ -76,13 +84,6 @@ class ViewController: UIViewController {
       Picker_PickerController.sourceType = .photoLibrary
       present(Picker_PickerController, animated: false, completion: nil)
     }
-//    override func prepare(for segue:UIStoryboardSegue, sender:Any?) {
-//      if segue.identifier == "GotoViewController2",
-//         let data = segue.destination as? ViewController2
-//      {
-//        data.Eraser()
-//      }
-//    }
 }
 
 extension ViewController : UIImagePickerControllerDelegate,

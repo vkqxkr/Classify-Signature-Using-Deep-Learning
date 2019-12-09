@@ -82,6 +82,10 @@ class ViewController2: UIViewController {
         UIGraphicsEndImageContext()
     }
     
+    func ClearAll_Func() {
+        ForceValue_String = ""
+    }
+    
     func GetForceValue_Func()->String {
         return ForceValue_String
     }
