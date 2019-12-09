@@ -13,6 +13,8 @@ class ViewController2: UIViewController {
     
     @IBOutlet weak var DrawingSignature_ImageView: UIImageView!
     
+    var ForceValue_String: String = ""
+    
     var brushColor = UIColor.black.cgColor
     var brushWidth: CGFloat = 1.0
 
@@ -35,6 +37,7 @@ class ViewController2: UIViewController {
         if let touch = touches.first {
                 let force = touch.force/touch.maximumPossibleForce
                 print(force)
+            ForceValue_String = ForceValue_String + force.description + "\n"
             let currentPoint = touch.location(in: DrawingSignature_ImageView)
                     drawLine(from: lastPoint, to: currentPoint, force: force)
                     lastPoint = currentPoint
@@ -79,9 +82,8 @@ class ViewController2: UIViewController {
         UIGraphicsEndImageContext()
     }
     
-    func Eraser() {
-        DrawingSignature_ImageView.image = nil
-        return
+    func GetForceValue_Func()->String {
+        return ForceValue_String
     }
 }
 
