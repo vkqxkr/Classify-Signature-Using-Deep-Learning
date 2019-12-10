@@ -20,11 +20,12 @@ class ViewController2: UIViewController {
 
     var LastPoint_CGPoint = CGPoint.zero
     var IsDrawing_Boolean = false
-
-    var IsPen_Boolean = true
+    
+    var IsClear_Boolean = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DrawingSignature_ImageView.image = UIImage(named: "white.png")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -36,7 +37,6 @@ class ViewController2: UIViewController {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
                 let force = touch.force/touch.maximumPossibleForce
-                print(force)
             ForceValue_String = ForceValue_String + force.description + "\n"
             let currentPoint = touch.location(in: DrawingSignature_ImageView)
                     DrawLine_Func(from: LastPoint_CGPoint, to: currentPoint, force: force)
@@ -48,12 +48,12 @@ class ViewController2: UIViewController {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let force = touch.force/touch.maximumPossibleForce
-            print(force)
             if !IsDrawing_Boolean {
                 DrawLine_Func(from: LastPoint_CGPoint, to: LastPoint_CGPoint, force: force)
             }
             IsDrawing_Boolean = false
         }
+        print(ForceValue_String)
     }
     
     func DrawLine_Func(from: CGPoint, to: CGPoint, force: CGFloat) {
@@ -62,12 +62,6 @@ class ViewController2: UIViewController {
         guard let context = UIGraphicsGetCurrentContext() else { return }
 
         DrawingSignature_ImageView.image?.draw(in: DrawingSignature_ImageView.bounds)
-
-        if IsPen_Boolean {
-            context.setBlendMode(.normal)
-        } else {
-            context.setBlendMode(.clear)
-        }
 
         context.setLineCap(.round)
         context.setLineWidth(force * 10)
@@ -84,7 +78,6 @@ class ViewController2: UIViewController {
     
     func ClearAll_Func() {
         ForceValue_String = ""
-        DrawingSignature_ImageView.backgroundColor = UIColor.white
     }
     
     func GetForceValue_Func()->String {
