@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var Reset_Button: UIButton!
     @IBOutlet weak var Save_Button: UIButton!
     @IBOutlet weak var DrawingSignatureView_ImageView: UIImageView!
+    @IBOutlet weak var SignaturePictureView_ImageView: UIImageView!
     
     var SubjectName_String: String = ""
     
@@ -74,12 +75,24 @@ class ViewController: UIViewController {
     }
     
     @IBAction func Save_Func_Save_Button(_ sender: UIButton) {
-        if SubjectName_String.count > 0 && SubjectName_String.trimmingCharacters(in: .whitespaces).isEmpty {
-            
-        }
-        else {
-            ShowToastMessage_Func(message: "실험자 이름을 입력하여 주세요.", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
-        }
+//        if SubjectName_String.count > 0 && SubjectName_String.trimmingCharacters(in: .whitespaces).isEmpty {
+//            WriteTextFile_Func(data: ForceValue_String, filename: SubjectName_String + ".txt")
+//            guard let TrySignatureImage = DrawingSignatureView_ImageView.image!.pngData() else { return  }
+//            WritePngFile_Func(data: TrySignatureImage, filename: SubjectName_String + ".png")
+//            ShowToastMessage_Func(message: "저장완료", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
+//        }
+//        else {
+//            ShowToastMessage_Func(message: "실험자 이름을 입력하여 주세요.", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
+//        }
+//        WriteTextFile_Func(data: ForceValue_String, filename: SubjectName_String + ".txt")
+//        guard let TrySignatureImage = DrawingSignatureView_ImageView.image!.pngData() else { return  }
+//        WritePngFile_Func(data: TrySignatureImage, filename: SubjectName_String + ".png")
+//        ShowToastMessage_Func(message: "저장완료", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
+        
+                WriteTextFile_Func(data: ForceValue_String, filename: "박" + ".txt")
+                guard let TrySignatureImage = DrawingSignatureView_ImageView.image!.pngData() else { return  }
+                WritePngFile_Func(data: TrySignatureImage, filename: "박" + ".png")
+                ShowToastMessage_Func(message: "저장완료", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
     }
     
     func OpenGallary_Func(){
@@ -100,7 +113,7 @@ class ViewController: UIViewController {
             let x = currentPoint.x
             let y = currentPoint.y
             if x >= 0 && x <= 300 && y >= 0 && y <= 300 {
-                print(force)
+                ForceValue_String = ForceValue_String + force.description + "\n"
             }
             DrawLine_Func(from: LastPoint_CGPoint, to: currentPoint, force: force)
             LastPoint_CGPoint = currentPoint
@@ -138,14 +151,38 @@ class ViewController: UIViewController {
 
         UIGraphicsEndImageContext()
     }
+    
+    func GetDocumentsDirectory_Func() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func WriteTextFile_Func(data: String, filename: String) {
+        let filename = GetDocumentsDirectory_Func().appendingPathComponent(filename)
+        do {
+            try data.write(to: filename, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
+        }
+    }
+    
+    func WritePngFile_Func(data: Data, filename: String) {
+        let filename = GetDocumentsDirectory_Func().appendingPathComponent(filename)
+        do {
+            try data.write(to: filename)
+        } catch {
+            // failed to write file – bad permissions, bad filename, missing permissions, or more likely it can't be converted to the encoding
+        }
+    }
 }
 
 extension ViewController : UIImagePickerControllerDelegate,
 UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if (info[UIImagePickerController.InfoKey.originalImage] as? UIImage) != nil {
-            //이미지 추가
-        }
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+                    SignaturePictureView_ImageView.image = image
+            SignaturePictureView_ImageView.alpha = 0.3
+                }
         dismiss(animated: true, completion: nil)
     }
 }

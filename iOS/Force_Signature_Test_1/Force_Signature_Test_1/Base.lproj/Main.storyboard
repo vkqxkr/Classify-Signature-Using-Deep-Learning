@@ -78,6 +78,7 @@
                         <outlet property="GetPicture_Button" destination="bjg-2D-Z42" id="xDG-Jz-qJd"/>
                         <outlet property="Reset_Button" destination="DyG-r5-VV1" id="gnr-CG-2hy"/>
                         <outlet property="Save_Button" destination="tgY-6v-x8z" id="2pc-gs-BNt"/>
+                        <outlet property="SignaturePictureView_ImageView" destination="YhC-4L-8nA" id="LsS-V4-pHW"/>
                         <outlet property="SubjectName_TextField" destination="GTc-U1-g7T" id="aZ4-PT-75a"/>
                     </connections>
                 </viewController>
