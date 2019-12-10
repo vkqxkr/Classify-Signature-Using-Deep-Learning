@@ -36,15 +36,15 @@ class ViewController: UIViewController {
         DrawingSignatureView_ImageView.layer.borderColor = UIColor.black.cgColor
         DrawingSignatureView_ImageView.layer.borderWidth = 1.0
         Picker_PickerController.delegate = self as  UIImagePickerControllerDelegate & UINavigationControllerDelegate
-        SubjectName_TextField.returnKeyType = .done
-        self.SubjectName_TextField.delegate = self as? UITextFieldDelegate
+//        SubjectName_TextField.returnKeyType = .done
+//        self.SubjectName_TextField.delegate = self as? UITextFieldDelegate
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        SubjectName_String = SubjectName_TextField.text ?? ""
-        return false
-    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        SubjectName_String = SubjectName_TextField.text ?? ""
+//        return false
+//    }
     
     func ShowToastMessage_Func(message : String, font: UIFont) {
         
@@ -75,24 +75,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func Save_Func_Save_Button(_ sender: UIButton) {
-//        if SubjectName_String.count > 0 && SubjectName_String.trimmingCharacters(in: .whitespaces).isEmpty {
-//            WriteTextFile_Func(data: ForceValue_String, filename: SubjectName_String + ".txt")
-//            guard let TrySignatureImage = DrawingSignatureView_ImageView.image!.pngData() else { return  }
-//            WritePngFile_Func(data: TrySignatureImage, filename: SubjectName_String + ".png")
-//            ShowToastMessage_Func(message: "저장완료", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
-//        }
-//        else {
-//            ShowToastMessage_Func(message: "실험자 이름을 입력하여 주세요.", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
-//        }
-//        WriteTextFile_Func(data: ForceValue_String, filename: SubjectName_String + ".txt")
-//        guard let TrySignatureImage = DrawingSignatureView_ImageView.image!.pngData() else { return  }
-//        WritePngFile_Func(data: TrySignatureImage, filename: SubjectName_String + ".png")
-//        ShowToastMessage_Func(message: "저장완료", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
-        
-                WriteTextFile_Func(data: ForceValue_String, filename: "박" + ".txt")
-                guard let TrySignatureImage = DrawingSignatureView_ImageView.image!.pngData() else { return  }
-                WritePngFile_Func(data: TrySignatureImage, filename: "박" + ".png")
-                ShowToastMessage_Func(message: "저장완료", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
+        SubjectName_String = SubjectName_TextField.text!
+        if SubjectName_String.count > 0{
+            WriteTextFile_Func(data: ForceValue_String, filename: SubjectName_String + ".txt")
+            guard let TrySignatureImage = DrawingSignatureView_ImageView.image!.pngData() else { return  }
+            WritePngFile_Func(data: TrySignatureImage, filename: SubjectName_String + ".png")
+            ShowToastMessage_Func(message: "저장완료", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
+        }
+        else {
+            ShowToastMessage_Func(message: "실험자 이름을 입력하여 주세요.", font: UIFont.systemFont(ofSize: UIFont.systemFontSize))
+        }
     }
     
     func OpenGallary_Func(){
