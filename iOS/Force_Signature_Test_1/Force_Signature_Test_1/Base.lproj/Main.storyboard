@@ -65,12 +65,16 @@
                                 <rect key="frame" x="233" y="545" width="300" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YhC-4L-8nA">
+                                <rect key="frame" x="233" y="545" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="DrawingSIgnatureView_ImageView" destination="UcO-gh-Pxu" id="yDi-Qd-Eki"/>
+                        <outlet property="DrawingSignatureView_ImageView" destination="UcO-gh-Pxu" id="yDi-Qd-Eki"/>
                         <outlet property="GetPicture_Button" destination="bjg-2D-Z42" id="xDG-Jz-qJd"/>
                         <outlet property="Reset_Button" destination="DyG-r5-VV1" id="gnr-CG-2hy"/>
                         <outlet property="Save_Button" destination="tgY-6v-x8z" id="2pc-gs-BNt"/>

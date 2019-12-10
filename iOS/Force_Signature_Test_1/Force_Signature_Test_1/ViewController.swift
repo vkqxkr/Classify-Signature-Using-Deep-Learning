@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var GetPicture_Button: UIButton!
     @IBOutlet weak var Reset_Button: UIButton!
     @IBOutlet weak var Save_Button: UIButton!
-    @IBOutlet weak var DrawingSIgnatureView_ImageView: UIImageView!
+    @IBOutlet weak var DrawingSignatureView_ImageView: UIImageView!
     
     var SubjectName_String: String = ""
     
@@ -32,8 +32,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DrawingSIgnatureView_ImageView.layer.borderColor = UIColor.black.cgColor
-        DrawingSIgnatureView_ImageView.layer.borderWidth = 1.0
+        DrawingSignatureView_ImageView.layer.borderColor = UIColor.black.cgColor
+        DrawingSignatureView_ImageView.layer.borderWidth = 1.0
         Picker_PickerController.delegate = self as  UIImagePickerControllerDelegate & UINavigationControllerDelegate
         SubjectName_TextField.returnKeyType = .done
         self.SubjectName_TextField.delegate = self as? UITextFieldDelegate
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
     
     @IBAction func Reset_Func_Reset_Button(_ sender: UIButton) {
         ForceValue_String = ""
-        DrawingSIgnatureView_ImageView.image = nil
+        DrawingSignatureView_ImageView.image = nil
     }
     
     @IBAction func Save_Func_Save_Button(_ sender: UIButton) {
@@ -89,14 +89,14 @@ class ViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-                LastPoint_CGPoint = touch.location(in: DrawingSIgnatureView_ImageView)
+                LastPoint_CGPoint = touch.location(in: DrawingSignatureView_ImageView)
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let force = touch.force/touch.maximumPossibleForce
-            let currentPoint = touch.location(in: DrawingSIgnatureView_ImageView)
+            let currentPoint = touch.location(in: DrawingSignatureView_ImageView)
             let x = currentPoint.x
             let y = currentPoint.y
             if x >= 0 && x <= 300 && y >= 0 && y <= 300 {
@@ -120,11 +120,11 @@ class ViewController: UIViewController {
     }
     
     func DrawLine_Func(from: CGPoint, to: CGPoint, force: CGFloat) {
-        UIGraphicsBeginImageContext(DrawingSIgnatureView_ImageView.frame.size)
+        UIGraphicsBeginImageContext(DrawingSignatureView_ImageView.frame.size)
 
         guard let context = UIGraphicsGetCurrentContext() else { return }
 
-        DrawingSIgnatureView_ImageView.image?.draw(in: DrawingSIgnatureView_ImageView.bounds)
+        DrawingSignatureView_ImageView.image?.draw(in: DrawingSignatureView_ImageView.bounds)
 
         context.setLineCap(.round)
         context.setLineWidth(force * 10)
@@ -134,7 +134,7 @@ class ViewController: UIViewController {
 
         context.strokePath()
 
-        DrawingSIgnatureView_ImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        DrawingSignatureView_ImageView.image = UIGraphicsGetImageFromCurrentImageContext()
 
         UIGraphicsEndImageContext()
     }
