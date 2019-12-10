@@ -61,19 +61,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="DrawingSignatureContainerView_ID" translatesAutoresizingMaskIntoConstraints="NO" id="HxY-vw-BdK">
-                                <rect key="frame" x="233" y="552" width="300" height="300"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="a1a-bF-Ouh" kind="embed" identifier="GotoViewController2" id="crV-nK-MLZ"/>
-                                </connections>
-                            </containerView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UcO-gh-Pxu">
+                                <rect key="frame" x="233" y="545" width="300" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="DrawingSignature_ContainerView" destination="HxY-vw-BdK" id="WeE-lM-Yv6"/>
+                        <outlet property="DrawingSIgnatureView_ImageView" destination="UcO-gh-Pxu" id="yDi-Qd-Eki"/>
                         <outlet property="GetPicture_Button" destination="bjg-2D-Z42" id="xDG-Jz-qJd"/>
                         <outlet property="Reset_Button" destination="DyG-r5-VV1" id="gnr-CG-2hy"/>
                         <outlet property="Save_Button" destination="tgY-6v-x8z" id="2pc-gs-BNt"/>
@@ -83,28 +80,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.5185185185185" y="137.77777777777777"/>
-        </scene>
-        <!--View Controller2-->
-        <scene sceneID="Brf-KX-HU6">
-            <objects>
-                <viewController restorationIdentifier="ViewController2_ID" storyboardIdentifier="ViewController2_ID" id="a1a-bF-Ouh" customClass="ViewController2" customModule="Force_Signature_Test_1" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="FHf-tc-Xe4">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hya-Zl-eCo">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                    </view>
-                    <connections>
-                        <outlet property="DrawingSignature_ImageView" destination="Hya-Zl-eCo" id="XEm-Ye-kct"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dZk-He-3n5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="49" y="627"/>
         </scene>
     </scenes>
 </document>
