@@ -78,7 +78,7 @@
         app:layout_constraintStart_toStartOf="@+id/Save_Button"
         app:layout_constraintTop_toBottomOf="@+id/Save_Button"
         app:srcCompat="@android:color/background_light"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"/>
 
     <nclab.force_signature_test_1.MyPainter
         android:id="@+id/Painter_CanvasView"
