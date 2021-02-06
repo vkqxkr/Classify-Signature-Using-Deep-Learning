@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
         DrawingSignatureView_ImageView.layer.borderColor = UIColor.black.cgColor
         DrawingSignatureView_ImageView.layer.borderWidth = 1.0
         Picker_PickerController.delegate = self as  UIImagePickerControllerDelegate & UINavigationControllerDelegate
